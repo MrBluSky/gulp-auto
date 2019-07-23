@@ -41,6 +41,9 @@ switch(type){
   case 'images': 
     exec('gulp images', 'gulp images');
     break;
+  case 'build': 
+    exec('gulp build', 'gulp build');
+    break;
   default:
     Logger.info(chalk.red('文件类型不合法！'));
     process.exit();

@@ -26,7 +26,98 @@ Commands:
   help [cmd]               display help for [cmd]
 ```
 
-##### 3.说明 :  
-```
+#### 3.说明 :  
+
+##### Example:
+文件目录
+.  
+└── src  
+    ├── css  
+    │   └── index.css  
+    ├── images  
+    │   └── test.png  
+    └── js  
+        └── index.js  
+
+##### 1.js文件压缩
 
 ```
+  gulp-auto minify js -d src
+```  
+.  
+├── dist  
+│   └── js  
+│       └── index.js  
+└── src  
+    ├── css  
+    │   └── index.css  
+    ├── images  
+    │   └── test.png  
+    └── js  
+        └── index.js  
+
+##### 2.css文件压缩
+
+```
+  gulp-auto minify css -d src
+```  
+
+.  
+├── dist  
+│   └── css  
+│       └── index.css  
+└── src  
+    ├── css  
+    │   └── index.css  
+    ├── images  
+    │   └── test.png  
+    └── js  
+        └── index.js  
+
+##### 3.图片文件压缩  
+
+```
+  gulp-auto minify images -d src
+```  
+
+.   
+├── dist  
+│   └── images  
+│       └── test.png  
+└── src  
+    ├── css  
+    │   └── index.css  
+    ├── images  
+    │   └── test.png  
+    └── js  
+        └── index.js  
+
+##### 5.less文件编译为css  
+
+```
+  gulp-auto parse -d src
+```
+
+##### 6.`js`&`css`&`images`文件全部压缩
+
+```
+  gulp-auto minify build -d src
+```  
+
+.   
+├── dist  
+│   └── images  
+│       └── test.png  
+│   └── js  
+│       └── index.js  
+│   └── css  
+│       └── index.css  
+└── src  
+    ├── css  
+    │   └── index.css  
+    ├── images  
+    │   └── test.png  
+    └── js  
+        └── index.js  
+
+> 其他功能陆续赶来。。。

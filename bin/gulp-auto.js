@@ -11,7 +11,7 @@ const { name, version } = packages;
 Logger.logo();
 
 commander
-  .command('minify [js|css|images]', '压缩文件[js|css|images]')
+  .command('minify [js|css|images|build]', '压缩文件[js|css|images|build]')
   .command('watch', '监听文件')
   .command('init', '初始化模版应用')
   .command('parse [less]', '编译less文件为css')

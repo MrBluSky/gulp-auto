@@ -21,7 +21,7 @@ gulp.task('css', async function(){
 });
 
 gulp.task('images', async function(){
-  await gulp.src(`${entry}/**/*.*`)
+  await gulp.src(`${entry}/**/*.@(png|jpg|jpeg)`)
   .pipe(imagemin({
     progressive: true
   }))
@@ -33,6 +33,10 @@ gulp.task('less', async function(){
   .pipe(less())
   .pipe(gulp.dest(dist))
 });
+
+gulp.task('build', gulp.series('js', 'css', 'images', async function(){
+  console.log('build success!');
+}))
 
 gulp.task('A', async function(){
   console.log('哈哈',);
