@@ -4,32 +4,34 @@ const path = require('path'),
       minifyCSS = require('gulp-minify-css'),
       imagemin = require('gulp-imagemin'),
       less = require('gulp-less');
-const cwd = process.cwd();
+const cwd = process.env.appDir,
+      entry = `${cwd}/${process.env.fileDir}`,
+      dist = `${cwd}/dist`;
 
 gulp.task('js', async function(){
-  await gulp.src(`${process.env.fileDir}/*.js`)
+  await gulp.src(`${entry}/**/*.js`)
   .pipe(uglify())
-  .pipe(gulp.dest(path.join(cwd, 'dist/js')))
+  .pipe(gulp.dest(dist))
 });
 
 gulp.task('css', async function(){
-  await gulp.src(`${process.env.fileDir}/*.css`)
+  await gulp.src(`${entry}/**/*.css`)
   .pipe(minifyCSS())
-  .pipe(gulp.dest(path.join(cwd, 'dist/css')))
+  .pipe(gulp.dest(dist))
 });
 
 gulp.task('images', async function(){
-  await gulp.src(`${process.env.fileDir}/*.*`)
+  await gulp.src(`${entry}/**/*.*`)
   .pipe(imagemin({
     progressive: true
   }))
-  .pipe(gulp.dest(path.join(cwd, 'dist/images')))
+  .pipe(gulp.dest(dist))
 });
 
 gulp.task('less', async function(){
-  await gulp.src(`${process.env.fileDir}/**.less`)
+  await gulp.src(`${entry}/**/*.less`)
   .pipe(less())
-  .pipe(gulp.dest(path.join(cwd, 'dist/css')))
+  .pipe(gulp.dest(dist))
 });
 
 gulp.task('A', async function(){

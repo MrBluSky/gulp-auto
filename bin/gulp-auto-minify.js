@@ -30,6 +30,7 @@ if(!appName){
 }
 
 process.env.fileDir = appName;
+process.env.appDir = process.cwd();
 
 switch(type){
   case 'js': 

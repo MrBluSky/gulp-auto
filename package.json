@@ -1,7 +1,7 @@
 {
   "name": "gulp-auto",
-  "version": "0.0.1",
-  "description": "功能： 提供基于gulp的前端自动化环境，代码压缩[js|css|image]，文件监听，模版文件初始化，文件拷贝等常见的基于gulp的任务",
+  "version": "0.1.0",
+  "description": "简洁，高效，实用的前端自动化开发小工具！针对前端开发常见需求，提供基于gulp的前端自动化环境，代码压缩[js|css|image]，less编译及压缩，文件监听，模版文件初始化，文件拷贝等常见的基于gulp自动化执行的任务",
   "main": "index.js",
   "bin": {
     "gulp-auto": "bin/gulp-auto.js"
