@@ -19,11 +19,11 @@ Options:
   -h, --help     output usage information
 
 Commands:
-  minify         压缩文件[js|css|images]
-  watch          监听文件
-  init           初始化模版应用
-  parse          解析并压缩css文件
-  help [cmd]     display help for [cmd]
+  minify [js|css|images]   压缩文件[js|css|images]
+  watch                    监听文件
+  init                     初始化模版应用
+  parse [less]             解析less文件为css
+  help [cmd]               display help for [cmd]
 ```
 
 ##### 3.说明 :  

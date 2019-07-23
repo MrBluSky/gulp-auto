@@ -9,22 +9,16 @@ const commander = require('commander'),
     packages = require('../package.json');
     
 const { Logger } = utils;
-const spinner = ora(chalk.cyan('压缩中...\n')).start();
+const spinner = ora(chalk.cyan('编译中...\n')).start();
 
 commander
   .option('-d, --fileDir [fileDir]', '文件目录')
   .parse(process.argv);
 
-const type = commander.args[0];
 const appName = commander.fileDir;
-
-if(!type){
-  Logger.info(chalk.red('请选择文件类型！'));
-  process.exit();
-}
-
+const type = 'less';
 if(!appName){
-  Logger.info(chalk.red('minify [file] 不能为空！'));
+  Logger.info(chalk.red('parse [file] 不能为空！'));
   process.exit();
 }
 
@@ -32,18 +26,12 @@ process.env.fileDir = appName;
 process.env.appDir = process.cwd();
 
 switch(type){
-  case 'js': 
-    exec('gulp js', 'gulp js');
-    break;
-  case 'css': 
-    exec('gulp css', 'gulp css');
-    break;
-  case 'images': 
-    exec('gulp images', 'gulp images');
+  case 'less': 
+    exec('gulp less', 'gulp less');
     break;
   default:
     Logger.info(chalk.red('文件类型不合法！'));
     process.exit();
 }
 
-spinner.succeed(chalk.green('压缩成功!'));
+spinner.succeed(chalk.green('编译成功!'));

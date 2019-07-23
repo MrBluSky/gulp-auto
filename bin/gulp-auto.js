@@ -11,9 +11,10 @@ const { name, version } = packages;
 Logger.logo();
 
 commander
-  .command('minify', '压缩文件[js|css|images]')
+  .command('minify [js|css|images]', '压缩文件[js|css|images]')
   .command('watch', '监听文件')
   .command('init', '初始化模版应用')
+  .command('parse [less]', '编译less文件为css')
   .option('-v, --version', '输出当前gulp-auto版本号', function(){
     Logger.info(chalk.yellow(`${name}@${version}`));
   })
