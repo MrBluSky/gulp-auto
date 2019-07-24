@@ -6,7 +6,10 @@ const path = require('path'),
       less = require('gulp-less');
 const cwd = process.env.appDir,
       entry = `${cwd}/${process.env.fileDir}`,
-      dist = `${cwd}/dist`;
+      dist = `${cwd}/dist`,
+      initRoot = process.env.initRoot,
+      initApp = process.env.initApp,
+      initDir = `${cwd}/${initApp}`;
 
 gulp.task('js', async function(){
   await gulp.src(`${entry}/**/*.js`)
@@ -36,7 +39,14 @@ gulp.task('less', async function(){
 
 gulp.task('build', gulp.series('js', 'css', 'images', async function(){
   console.log('build success!');
-}))
+}));
+
+gulp.task('init', async function(){
+  console.log('哈哈', initRoot);
+  await gulp.src(`${initRoot}/app-init/**`)
+  .pipe(gulp.dest(initDir, { base: '.' }));
+  console.log('输出', initDir);
+});
 
 gulp.task('A', async function(){
   console.log('哈哈',);

@@ -19,49 +19,62 @@ Options:
   -h, --help     output usage information
 
 Commands:
-  minify [js|css|images]   压缩文件[js|css|images]
-  watch                    监听文件
-  init                     初始化模版应用
-  parse [less]             解析less文件为css
-  help [cmd]               display help for [cmd]
+  init [name]                   初始化模版应用
+  minify [js|css|images|build]  压缩文件[js|css|images|build]
+  parse [less]                  解析less文件为css
+  watch                         监听文件
+  help [cmd]                    display help for [cmd]
 ```
 
 #### 3.说明 :  
 
 ##### Example:
-文件目录
-.  
-└── src  
-    ├── css  
-    │   └── index.css  
-    ├── images  
-    │   └── test.png  
-    └── js  
-        └── index.js  
 
-##### 1.js文件压缩
+##### 1.初始化模版应用
+```
+  gulp-auto minify js -d src
+```  
+
+即可在当前目录下创建一个文件app，内部的目录结构如下所示：
+```
+test-app
+└── src
+    ├── css
+    │   └── index.css
+    ├── images
+    │   └── test.png
+    └── js
+        └── index.js
+```
+
+##### 2.js文件压缩
 
 ```
   gulp-auto minify js -d src
 ```  
-.  
-├── dist  
-│   └── js  
-│       └── index.js  
-└── src  
-    ├── css  
-    │   └── index.css  
-    ├── images  
-    │   └── test.png  
-    └── js  
-        └── index.js  
+此时，即可在当前目录下创建dist，并将压缩后的js放置在当前目录下，内部目录结构如下所示：
 
-##### 2.css文件压缩
+```
+.
+├── dist
+│   └── js
+│       └── index.js
+└── src
+    ├── css
+    │   └── index.css
+    ├── images
+    │   └── test.png
+    └── js
+        └── index.js
+```
+
+##### 3.css文件压缩
 
 ```
   gulp-auto minify css -d src
 ```  
-
+此时，即可在当前目录下创建dist，并将压缩后的css放置在当前目录下，内部目录结构如下所示：
+```
 .  
 ├── dist  
 │   └── css  
@@ -73,13 +86,15 @@ Commands:
     │   └── test.png  
     └── js  
         └── index.js  
+```
 
-##### 3.图片文件压缩  
+##### 4.图片文件压缩  
 
 ```
   gulp-auto minify images -d src
 ```  
-
+内部目录结构如下所示：
+```
 .   
 ├── dist  
 │   └── images  
@@ -91,6 +106,7 @@ Commands:
     │   └── test.png  
     └── js  
         └── index.js  
+```
 
 ##### 5.less文件编译为css  
 
@@ -103,7 +119,9 @@ Commands:
 ```
   gulp-auto minify build -d src
 ```  
+内部目录结构如下所示：
 
+```
 .   
 ├── dist  
 │   └── images  
@@ -119,5 +137,6 @@ Commands:
     │   └── test.png  
     └── js  
         └── index.js  
+```
 
 > 其他功能陆续赶来。。。

@@ -2,13 +2,13 @@
 
 'use strict';
 const commander = require('commander'),
-    utils = require('../utils'),
     chalk = require('chalk'),
-    packages = require('../package.json'),
     emptyDir = require('empty-dir'),
-    download = require('download-git-repo'),
     ora = require('ora'),
-    path = require('path');
+    path = require('path'),
+    utils = require('../utils'),
+    exec = require('../lib/exec'),
+    packages = require('../package.json');
 const { Logger } = utils;
 const { name, version } = packages;
 const dest = process.cwd();
@@ -17,7 +17,7 @@ Logger.info(chalk.yellow('开始创建app'));
 const spinner = ora(chalk.cyan('创建中...')).start();
 
 commander
-  .option('-t, --template [template]', '指定初始化模版 [当前默认react]')
+  .option('-t, --template [template]', '指定初始化模版')
   .parse(process.argv);
 
 const appName = commander.args[0];
@@ -35,4 +35,9 @@ if (!emptyDir(dest)) {
   process.exit();
 }
 
-spinner.warn(chalk.yellow('该工程正在赶来的路上, 请稍后...'));
+process.env.initRoot = path.join(__dirname, '../');
+process.env.initApp = appName;
+process.env.appDir = process.cwd();
+
+exec('gulp init', 'gulp init app');
+spinner.succeed(chalk.green('创建完成'));
