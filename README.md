@@ -32,7 +32,7 @@ Commands:
 
 ##### 1.初始化模版应用
 ```
-  gulp-auto minify js -d src
+  gulp-auto init test-app
 ```  
 
 即可在当前目录下创建一个文件app，内部的目录结构如下所示：
